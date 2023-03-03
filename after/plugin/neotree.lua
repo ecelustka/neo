@@ -1,4 +1,4 @@
- require("neo-tree").setup({
+require("neo-tree").setup({
 	close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
 	popup_border_style = "rounded",
 	enable_git_status = true,
@@ -7,7 +7,7 @@
 	sort_function = nil, -- use a custom function for sorting files and directories in the tree
 	default_component_configs = {
 		container = {
-			enable_character_fade = true
+			enable_character_fade = true,
 		},
 		indent = {
 			indent_size = 2,
@@ -30,7 +30,7 @@
 			-- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
 			-- then these will never be used.
 			default = "*",
-			highlight = "NeoTreeFileIcon"
+			highlight = "NeoTreeFileIcon",
 		},
 		modified = {
 			symbol = "[+]",
@@ -44,17 +44,17 @@
 		git_status = {
 			symbols = {
 				-- Change type
-				added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-				modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
-				deleted   = "✖", -- this can only be used in the git_status source
-				renamed   = "", -- this can only be used in the git_status source
+				added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+				modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
+				deleted = "✖", -- this can only be used in the git_status source
+				renamed = "", -- this can only be used in the git_status source
 				-- Status type
 				untracked = "",
-				ignored   = "",
-				unstaged  = "",
-				staged    = "",
-				conflict  = "",
-			}
+				ignored = "",
+				unstaged = "",
+				staged = "",
+				conflict = "",
+			},
 		},
 	},
 	window = {
@@ -85,8 +85,8 @@
 				"add",
 				-- some commands may take optional config options, see `:h neo-tree-mappings` for details
 				config = {
-					show_path = "none" -- "none", "relative", "absolute"
-				}
+					show_path = "none", -- "none", "relative", "absolute"
+				},
 			},
 			["A"] = "add_directory", -- also accepts the optional config.show_path option like "add".
 			["d"] = "delete",
@@ -107,7 +107,7 @@
 			["?"] = "show_help",
 			["<"] = "prev_source",
 			[">"] = "next_source",
-		}
+		},
 	},
 	nesting_rules = {},
 	filesystem = {
@@ -117,7 +117,7 @@
 			hide_gitignored = true,
 			hide_hidden = true, -- only works on Windows for hidden files/directories
 			hide_by_name = {
-				"node_modules"
+				"node_modules",
 			},
 			hide_by_pattern = { -- uses glob style patterns
 				--"*.meta",
@@ -125,12 +125,9 @@
 			},
 			always_show = { -- remains visible even if other settings would normally hide it
 				".gitignored",
-                ".prettierrc.cjs",
-                ".stylelintrc.cjs",
-                ".eslintrc.cjs",
-                ".env",
-                ".env.production",
-                ".env.test"
+				".env",
+				".env.production",
+				".env.test",
 			},
 			never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
 				".DS_Store",
@@ -158,8 +155,8 @@
 				["<c-x>"] = "clear_filter",
 				["[g"] = "prev_git_modified",
 				["]g"] = "next_git_modified",
-			}
-		}
+			},
+		},
 	},
 	-- buffers = {
 	-- 	follow_current_file = true, -- This will find and focus the file in the active buffer every
@@ -178,14 +175,14 @@
 		window = {
 			position = "float",
 			mappings = {
-				["A"]  = "git_add_all",
+				["A"] = "git_add_all",
 				["gu"] = "git_unstage_file",
 				["ga"] = "git_add_file",
 				["gr"] = "git_revert_file",
 				["gc"] = "git_commit",
 				["gp"] = "git_push",
 				["gg"] = "git_commit_and_push",
-			}
-		}
-	}
+			},
+		},
+	},
 })
