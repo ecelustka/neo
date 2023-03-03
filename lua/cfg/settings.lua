@@ -35,4 +35,5 @@ vim.g.visualbell = true
 
 vim.cmd([[
     syntax on
+    autocmd BufNewFile,BufRead .env.* set filetype=sh
 ]])
