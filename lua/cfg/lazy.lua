@@ -71,6 +71,14 @@ return require("lazy").setup({
 		},
 	},
 
+	-- Rest
+	{
+		"rest-nvim/rest.nvim",
+		dependencies = {
+			{ "nvim-lua/plenary.nvim" },
+		},
+	},
+
 	-- Others
 	"github/copilot.vim",
 	"windwp/nvim-autopairs",
