@@ -80,7 +80,3 @@ config.stylelint_lsp.setup({
 		},
 	},
 })
-
--- config.emmet_ls.setup({
--- 	filetypes = { "html", "svelte" },
--- })
