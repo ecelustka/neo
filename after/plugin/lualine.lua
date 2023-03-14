@@ -1,5 +1,14 @@
-require('lualine').setup({
-    options = {
-        theme = 'gruvbox-material'
-    }
+require("lualine").setup({
+	options = {
+		theme = "auto",
+	},
+	sections = {
+		lualine_c = {
+			{
+				"filename",
+				path = 1,
+			},
+		},
+	},
+	extensions = { "neo-tree" },
 })
