@@ -11,10 +11,6 @@ vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>")
 vim.keymap.set("n", "<leader>p", ":Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>f", ":Telescope live_grep<CR>")
 
--- Copilot
-vim.g.copilot_no_tab_map = true
-vim.keymap.set("i", "<C-c>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
-
 -- Delete without yanks
 vim.keymap.set("n", "d", '"_d')
 vim.keymap.set("n", "D", '"_D')

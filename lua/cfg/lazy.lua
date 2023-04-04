@@ -79,8 +79,10 @@ return require("lazy").setup({
 		},
 	},
 
+	-- Copilot
+	"zbirenbaum/copilot.lua",
+
 	-- Others
-	"github/copilot.vim",
 	"windwp/nvim-autopairs",
 	"pwntester/octo.nvim",
 	"machakann/vim-highlightedyank",
