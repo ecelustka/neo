@@ -10,6 +10,7 @@ vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>")
 -- Telescope
 vim.keymap.set("n", "<leader>p", ":Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>f", ":Telescope live_grep<CR>")
+vim.keymap.set("n", "gr", ":lua require'telescope.builtin'.lsp_references{}<CR>")
 
 -- Delete without yanks
 vim.keymap.set("n", "d", '"_d')
