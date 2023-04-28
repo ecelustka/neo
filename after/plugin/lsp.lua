@@ -39,11 +39,21 @@ lsp.set_preferences({
 lsp.setup()
 
 vim.diagnostic.config({
-	virtual_text = true,
+	virtual_text = {
+		errors = { "italic" },
+		hints = { "italic" },
+		warnings = { "italic" },
+		information = { "italic" },
+	},
+	underlines = {
+		errors = { "underline" },
+		hints = { "underline" },
+		warnings = { "underline" },
+		information = { "underline" },
+	},
 	signs = true,
 	update_in_insert = true,
 	float = true,
-	underline = true,
 })
 
 config.eslint.setup({

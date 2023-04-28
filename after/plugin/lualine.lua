@@ -1,6 +1,6 @@
 require("lualine").setup({
 	options = {
-		theme = "auto",
+		theme = "catppuccin",
 	},
 	sections = {
 		lualine_c = {
@@ -9,6 +9,7 @@ require("lualine").setup({
 				path = 1,
 			},
 		},
+		lualine_x = { "filetype" },
 	},
-	extensions = { "neo-tree" },
+	extensions = { "fzf", "neo-tree" },
 })

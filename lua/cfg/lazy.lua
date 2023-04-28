@@ -11,7 +11,7 @@ return require("lazy").setup({
 	},
 
 	-- Color schema
-	"gruvbox-community/gruvbox",
+	{ "catppuccin/nvim", name = "catppuccin" },
 	"kyazdani42/nvim-web-devicons",
 
 	-- Status bar
