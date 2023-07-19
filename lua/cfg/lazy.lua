@@ -63,7 +63,7 @@ return require("lazy").setup({
 	-- TreeFile view
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
+		branch = "v3.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"kyazdani42/nvim-web-devicons",
@@ -81,6 +81,23 @@ return require("lazy").setup({
 
 	-- Copilot
 	"zbirenbaum/copilot.lua",
+
+	-- DAP
+	{
+		"mfussenegger/nvim-dap",
+		lazy = true,
+		dependencies = {
+			"rcarriga/nvim-dap-ui",
+			"mxsdev/nvim-dap-vscode-js",
+			"theHamsta/nvim-dap-virtual-text",
+			-- lazy spec to build "microsoft/vscode-js-debug" from source
+			{
+				"microsoft/vscode-js-debug",
+				version = "1.x",
+				build = "npm i && npm run compile vsDebugServerBundle && mv dist out",
+			},
+		},
+	},
 
 	-- Others
 	"windwp/nvim-autopairs",

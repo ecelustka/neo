@@ -36,6 +36,18 @@ vim.keymap.set("n", "gD", ":vsp<cr><cmd>lua vim.lsp.buf.definition()<CR>")
 vim.keymap.set("n", "D", "<cmd>lua vim.diagnostic.open_float()<CR>")
 vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 
+-- DAP
+vim.keymap.set("n", "<F5>", require("dap").continue)
+vim.keymap.set("n", "<F6>", require("dap").step_over)
+vim.keymap.set("n", "<F11>", require("dap").step_into)
+vim.keymap.set("n", "<F12>", require("dap").step_out)
+vim.keymap.set("n", "<leader>b", require("dap").toggle_breakpoint)
+vim.keymap.set("n", "<leader>B", function()
+	vim.keymap.set("n", "<leader>ui", require("dapui").toggle)
+	require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+end)
+vim.keymap.set("n", "<leader>ui", require("dapui").toggle)
+
 -- Create new window
 vim.keymap.set("n", "<leader>n", ":botright vnew<CR>")
 
