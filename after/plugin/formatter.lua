@@ -62,6 +62,9 @@ require("formatter").setup({
 		svelte = {
 			require("formatter.filetypes.svelte").prettier,
 		},
+		terraform = {
+			require("formatter.filetypes.terraform").terraform_fmt,
+		},
 		typescript = {
 			require("formatter.filetypes.typescript").prettier,
 		},
