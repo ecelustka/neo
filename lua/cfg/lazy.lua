@@ -71,14 +71,6 @@ return require("lazy").setup({
 		},
 	},
 
-	-- Rest
-	{
-		"rest-nvim/rest.nvim",
-		dependencies = {
-			{ "nvim-lua/plenary.nvim" },
-		},
-	},
-
 	-- Copilot
 	"zbirenbaum/copilot.lua",
 
