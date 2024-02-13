@@ -1,7 +1,4 @@
 return require("lazy").setup({
-	-- Startup time
-	"lewis6991/impatient.nvim",
-
 	-- Telescope
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	"nvim-telescope/telescope-file-browser.nvim",
@@ -15,7 +12,10 @@ return require("lazy").setup({
 	"kyazdani42/nvim-web-devicons",
 
 	-- Status bar
-	"nvim-lualine/lualine.nvim",
+	{
+		"nvim-lualine/lualine.nvim",
+		requires = { "nvim-tree/nvim-web-devicons", opt = true },
+	},
 
 	-- Git
 	"nvim-lua/plenary.nvim",
@@ -32,7 +32,6 @@ return require("lazy").setup({
 	-- "rcarriga/nvim-dap-ui",
 	--
 	-- LSP and autocomplete
-	"dnlhc/glance.nvim",
 	{ "nvim-treesitter/nvim-treesitter" },
 	-- { "nvim-treesitter/nvim-treesitter", { build = ":TSUpdate" }},
 	{
@@ -54,7 +53,6 @@ return require("lazy").setup({
 
 			-- Snippets
 			{ "L3MON4D3/LuaSnip" },
-			{ "rafamadriz/friendly-snippets" },
 		},
 	},
 	"mhartington/formatter.nvim",
