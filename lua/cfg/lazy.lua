@@ -89,6 +89,9 @@ return require("lazy").setup({
 		},
 	},
 
+	-- Toggleterm
+	{ "akinsho/toggleterm.nvim", version = "*", config = true },
+
 	-- Others
 	"windwp/nvim-autopairs",
 	"pwntester/octo.nvim",
