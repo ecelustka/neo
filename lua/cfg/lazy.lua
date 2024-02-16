@@ -1,10 +1,13 @@
 return require("lazy").setup({
 	-- Telescope
-	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-	"nvim-telescope/telescope-file-browser.nvim",
 	{
 		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		lazy = true,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope-file-browser.nvim",
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		},
 	},
 
 	-- Color schema
@@ -19,11 +22,11 @@ return require("lazy").setup({
 
 	-- Git
 	"nvim-lua/plenary.nvim",
-	"lewis6991/gitsigns.nvim",
-	"kdheepak/lazygit.nvim",
+	{ "lewis6991/gitsigns.nvim", lazy = true },
+	{ "kdheepak/lazygit.nvim" },
 
 	-- Comments
-	"numToStr/Comment.nvim",
+	{ "numToStr/Comment.nvim", lazy = true },
 
 	-- TODO
 	-- "tpope/vim-fugitive",
@@ -33,7 +36,6 @@ return require("lazy").setup({
 	--
 	-- LSP and autocomplete
 	{ "nvim-treesitter/nvim-treesitter" },
-	-- { "nvim-treesitter/nvim-treesitter", { build = ":TSUpdate" }},
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v1.x",
@@ -55,7 +57,7 @@ return require("lazy").setup({
 			{ "L3MON4D3/LuaSnip" },
 		},
 	},
-	"mhartington/formatter.nvim",
+	{ "mhartington/formatter.nvim", lazy = true },
 	-- "ThePrimeagen/harpoon",
 	--
 	-- TreeFile view
@@ -70,7 +72,7 @@ return require("lazy").setup({
 	},
 
 	-- Copilot
-	"zbirenbaum/copilot.lua",
+	{ "zbirenbaum/copilot.lua", lazy = true },
 
 	-- DAP
 	{
@@ -90,13 +92,12 @@ return require("lazy").setup({
 	},
 
 	-- Toggleterm
-	{ "akinsho/toggleterm.nvim", version = "*", config = true },
+	{ "akinsho/toggleterm.nvim", version = "*", config = true, lazy = true },
 
 	-- Others
-	"windwp/nvim-autopairs",
-	"pwntester/octo.nvim",
-	"machakann/vim-highlightedyank",
-	"ray-x/lsp_signature.nvim",
-	"AndrewRadev/tagalong.vim",
-	"tpope/vim-surround",
+	{ "windwp/nvim-autopairs", lazy = true },
+	{ "pwntester/octo.nvim", lazy = true },
+	{ "ray-x/lsp_signature.nvim", lazy = true },
+	{ "AndrewRadev/tagalong.vim", lazy = true },
+	{ "tpope/vim-surround", lazy = true },
 })
