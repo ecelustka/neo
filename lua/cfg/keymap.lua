@@ -63,7 +63,12 @@ vim.cmd([[
     augroup FormatAutogroup
       autocmd!
       autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js,*.svelte,*.vue EslintFixAll
-      autocmd BufWritePost * FormatWrite
     augroup END
-
 ]])
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+	pattern = "*",
+	callback = function(args)
+		require("conform").format({ bufnr = args.buf })
+	end,
+})

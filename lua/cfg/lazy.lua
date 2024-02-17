@@ -57,8 +57,11 @@ return require("lazy").setup({
 			{ "L3MON4D3/LuaSnip" },
 		},
 	},
-	{ "mhartington/formatter.nvim", lazy = true },
-	-- "ThePrimeagen/harpoon",
+	-- { "mhartington/formatter.nvim", lazy = true },
+	{
+		"stevearc/conform.nvim",
+		lazy = true,
+	},
 	--
 	-- TreeFile view
 	{
@@ -95,6 +98,7 @@ return require("lazy").setup({
 	{ "akinsho/toggleterm.nvim", version = "*", config = true, lazy = true },
 
 	-- Others
+	{ "machakann/vim-highlightedyank", lazy = true },
 	{ "windwp/nvim-autopairs", lazy = true },
 	{ "pwntester/octo.nvim", lazy = true },
 	{ "ray-x/lsp_signature.nvim", lazy = true },
