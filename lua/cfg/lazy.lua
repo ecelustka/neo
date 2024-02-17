@@ -102,5 +102,4 @@ return require("lazy").setup({
 	{ "pwntester/octo.nvim", lazy = true },
 	{ "ray-x/lsp_signature.nvim", lazy = true },
 	{ "AndrewRadev/tagalong.vim", lazy = true },
-	{ "tpope/vim-surround", lazy = true },
 })
