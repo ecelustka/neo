@@ -98,7 +98,6 @@ return require("lazy").setup({
 	{ "akinsho/toggleterm.nvim", version = "*", config = true, lazy = true },
 
 	-- Others
-	{ "machakann/vim-highlightedyank", lazy = true },
 	{ "windwp/nvim-autopairs", lazy = true },
 	{ "pwntester/octo.nvim", lazy = true },
 	{ "ray-x/lsp_signature.nvim", lazy = true },
