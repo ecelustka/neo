@@ -1,8 +1,11 @@
-require("copilot").setup({
-	suggestion = {
-		auto_trigger = true,
-		keymap = {
-			accept = ",,",
-		},
-	},
-})
+-- require("copilot").setup({
+-- 	suggestion = {
+-- 		auto_trigger = true,
+-- 		keymap = {
+-- 			accept = ",,",
+-- 		},
+-- 	},
+-- 	filetypes = {
+-- 		["*"] = false,
+-- 	},
+-- })

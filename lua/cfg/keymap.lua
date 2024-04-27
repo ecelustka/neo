@@ -1,6 +1,12 @@
 vim.g.mapleader = ","
 vim.g.tagalong_additional_filetypes = { "svelte" }
 
+vim.keymap.set("i", ",,", 'copilot#Accept("\\<CR>")', {
+	expr = true,
+	replace_keycodes = false,
+})
+vim.g.copilot_no_tab_map = true
+
 -- Lazygit
 vim.keymap.set("n", "<leader>g", ":LazyGit<CR>")
 
