@@ -1,5 +1,5 @@
 vim.g.mapleader = ","
-vim.g.tagalong_additional_filetypes = { "svelte" }
+vim.g.tagalong_additional_filetypes = { "svelte", "astro" }
 
 vim.keymap.set("i", ",,", 'copilot#Accept("\\<CR>")', {
 	expr = true,
@@ -68,7 +68,7 @@ vim.keymap.set("v", "<leader>k", ":m '<-2<CR>gv=gv")
 vim.cmd([[
     augroup FormatAutogroup
       autocmd!
-      autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js,*.svelte,*.vue EslintFixAll
+      autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js,*.mjs,*.cjs,*.svelte,*.vue,*.astro EslintFixAll
     augroup END
 
     augroup highlight_yank
@@ -80,6 +80,6 @@ vim.cmd([[
 vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = "*",
 	callback = function(args)
-		require("conform").format({ bufnr = args.buf })
+		require("conform").format({ bufnr = args.buf, async = true, lsp_fallback = true })
 	end,
 })

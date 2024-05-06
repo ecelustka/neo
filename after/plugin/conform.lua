@@ -1,5 +1,6 @@
 require("conform").setup({
 	formatters_by_ft = {
+		astro = { "prettier" },
 		css = { "prettier" },
 		gp = { "gofmt" },
 		html = { "prettier" },
