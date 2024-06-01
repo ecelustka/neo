@@ -75,14 +75,14 @@ return require("lazy").setup({
 	},
 
 	-- Copilot
-    { "github/copilot.vim"},
+	{ "github/copilot.vim" },
 
 	-- DAP
 	{
 		"mfussenegger/nvim-dap",
 		lazy = true,
 		dependencies = {
-            "nvim-neotest/nvim-nio",
+			"nvim-neotest/nvim-nio",
 			"rcarriga/nvim-dap-ui",
 			"mxsdev/nvim-dap-vscode-js",
 			"theHamsta/nvim-dap-virtual-text",
@@ -103,4 +103,9 @@ return require("lazy").setup({
 	{ "pwntester/octo.nvim", lazy = true },
 	{ "ray-x/lsp_signature.nvim", lazy = true },
 	{ "AndrewRadev/tagalong.vim", lazy = true },
+	{
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
 })
