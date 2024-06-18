@@ -98,6 +98,9 @@ return require("lazy").setup({
 	-- Toggleterm
 	{ "akinsho/toggleterm.nvim", version = "*", config = true, lazy = true },
 
+	--
+	{ "vinnymeller/swagger-preview.nvim", build = "npm install -g swagger-ui-watcher" },
+
 	-- Others
 	{ "windwp/nvim-autopairs", lazy = true },
 	{ "pwntester/octo.nvim", lazy = true },
