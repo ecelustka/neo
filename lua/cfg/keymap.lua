@@ -1,3 +1,5 @@
+local harpoon = require("harpoon")
+
 vim.g.mapleader = ","
 vim.g.tagalong_additional_filetypes = { "svelte", "astro" }
 
@@ -83,3 +85,35 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 		require("conform").format({ bufnr = args.buf, async = true, lsp_fallback = true })
 	end,
 })
+
+vim.keymap.set("n", "<leader>ha", function()
+	harpoon:list():add()
+end)
+vim.keymap.set("n", "<leader>hD", function()
+	harpoon:list():clear()
+end)
+
+vim.keymap.set("n", "<leader>he", function()
+	harpoon.ui:toggle_quick_menu(harpoon:list())
+end)
+
+vim.keymap.set("n", "<leader>h1", function()
+	harpoon:list():select(1)
+end)
+vim.keymap.set("n", "<leader>h2", function()
+	harpoon:list():select(2)
+end)
+vim.keymap.set("n", "<leader>h3", function()
+	harpoon:list():select(3)
+end)
+vim.keymap.set("n", "<leader>h4", function()
+	harpoon:list():select(4)
+end)
+
+-- -- Toggle previous & next buffers stored within Harpoon list
+-- vim.keymap.set("n", "<C-s-p>", function()
+-- 	harpoon:list():prev()
+-- end)
+-- vim.keymap.set("n", "<C-s-n>", function()
+-- 	harpoon:list():next()
+-- end)
