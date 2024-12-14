@@ -1,5 +1,8 @@
 local lsp = require("lsp-zero")
 local config = require("lspconfig")
+local util = require("lspconfig.util")
+
+vim.opt.signcolumn = "yes"
 
 lsp.preset("recommended")
 
@@ -7,7 +10,7 @@ lsp.ensure_installed({
 	"eslint",
 	"gopls",
 	"lua_ls",
-	"tsserver",
+	"ts_ls",
 	"cssls",
 	"html",
 	"jsonls",
@@ -65,7 +68,7 @@ config.eslint.setup({
 		"typescriptreact",
 		"typescript.tsx",
 		"vue",
-		"svelte",
+		-- "svelte",
 		"astro",
 	},
 	settings = {
@@ -100,4 +103,13 @@ config.svelte.setup({
 			end,
 		})
 	end,
+	settings = {
+		svelte = {
+			ui = {
+				svelteKitFilesContextMenu = {
+					enable = "never",
+				},
+			},
+		},
+	},
 })

@@ -1,5 +1,6 @@
 local harpoon = require("harpoon")
 
+vim.opt.signcolumn = "yes"
 vim.g.mapleader = ","
 vim.g.tagalong_additional_filetypes = { "svelte", "astro" }
 
@@ -17,9 +18,6 @@ vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>")
 
 -- Telescope
 vim.keymap.set("n", "<leader>p", ":Telescope find_files<CR>")
-vim.keymap.set("n", "<leader>f", ":Telescope live_grep<CR>")
-vim.keymap.set("n", "gr", ":lua require'telescope.builtin'.lsp_references{}<CR>")
-vim.keymap.set("n", "ge", ":Telescope diagnostics<CR>")
 
 -- Delete without yanks
 vim.keymap.set("n", "d", '"_d')
@@ -40,10 +38,14 @@ vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 
 -- LSP
-vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-vim.keymap.set("n", "gD", ":vsp<cr><cmd>lua vim.lsp.buf.definition()<CR>")
+vim.keymap.set("n", "gd", ":lua require'telescope.builtin'.lsp_definitions{}<CR>")
+vim.keymap.set("n", "gD", ":vsp<cr> :lua require'telescope.builtin'.lsp_definitions{}<CR>")
 vim.keymap.set("n", "D", "<cmd>lua vim.diagnostic.open_float()<CR>")
 vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+vim.keymap.set("n", "<leader>f", ":Telescope live_grep<CR>")
+vim.keymap.set("n", "gr", ":lua require'telescope.builtin'.lsp_references{}<CR>")
+vim.keymap.set("n", "gi", ":lua require'telescope.builtin'.lsp_implementations{}<CR>")
+vim.keymap.set("n", "ge", ":Telescope diagnostics<CR>")
 
 -- DAP
 vim.keymap.set("n", "<F5>", require("dap").continue)
