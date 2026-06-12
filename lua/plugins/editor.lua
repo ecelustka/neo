@@ -5,11 +5,6 @@ return {
 		opts = {},
 	},
 	{
-		"numToStr/Comment.nvim",
-		event = { "BufReadPost", "BufNewFile" },
-		opts = {},
-	},
-	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
 		opts = {
@@ -17,6 +12,7 @@ return {
 			delay = 400,
 			spec = {
 				{ "<leader>h", group = "harpoon" },
+				{ "<leader>G", group = "git hunks" },
 				{ "<leader>b", desc = "DAP breakpoint" },
 				{ "<leader>B", desc = "DAP conditional breakpoint" },
 				{ "<leader>e", desc = "Neotree toggle" },

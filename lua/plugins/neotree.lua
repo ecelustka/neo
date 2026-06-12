@@ -95,7 +95,7 @@ return {
 					hide_gitignored = true,
 					hide_hidden = true,
 					hide_by_name = { "node_modules" },
-					always_show = { ".gitignored" },
+					always_show = { ".gitignore" },
 					never_show = { ".DS_Store" },
 				},
 				follow_current_file = { enabled = true },

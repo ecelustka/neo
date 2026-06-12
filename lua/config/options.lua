@@ -1,43 +1,34 @@
 local opt = vim.opt
-local g = vim.g
 
-opt.autoread = true
-opt.backspace = "indent,eol,start"
+-- No remote plugins in use; skipping provider detection quiets
+-- checkhealth and shaves a bit off startup
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+
+opt.backup = false
 opt.clipboard = "unnamedplus"
 opt.confirm = true
 opt.cursorline = true
-opt.encoding = "utf-8"
 opt.expandtab = true
-opt.hidden = true
-opt.hlsearch = true
 opt.ignorecase = true
-opt.incsearch = true
-opt.lazyredraw = true
 opt.mouse = "n"
 opt.number = true
-opt.ruler = true
+opt.scrolloff = 8
 opt.shiftwidth = 4
+opt.showmode = false
 opt.sidescroll = 1
 opt.signcolumn = "yes"
 opt.smartcase = true
 opt.smartindent = true
 opt.splitright = true
+opt.swapfile = false
 opt.tabstop = 4
-opt.ttyfast = true
+opt.undofile = true -- persistent undo, stored in stdpath("state")/undo
+opt.updatetime = 300
+opt.virtualedit = "all"
+opt.visualbell = true
+opt.winborder = "rounded"
 opt.wrap = false
-
-g.backup = false
-g.compatible = false
-g.showmode = false
-g.swapfile = false
-g.writebackup = false
-g.t_Co = 256
-g.undodir = "~/.vim/undodir"
-g.undofile = true
-g.updatetime = 300
-g.virtualedit = "all"
-g.visualbell = true
-
-g.tagalong_additional_filetypes = { "svelte", "astro" }
-
-vim.cmd("syntax on")
+opt.writebackup = false

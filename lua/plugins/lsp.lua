@@ -1,15 +1,27 @@
 return {
 	{
+		-- Proper lua_ls setup for editing the Neovim config: lazily feeds
+		-- runtime + plugin sources instead of indexing everything up front.
+		"folke/lazydev.nvim",
+		ft = "lua",
+		opts = {
+			library = {
+				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+			},
+		},
+	},
+	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
-			{ "williamboman/mason.nvim", opts = {} },
-			"williamboman/mason-lspconfig.nvim",
+			{ "mason-org/mason.nvim", opts = {} },
+			"mason-org/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			"saghen/blink.cmp",
 		},
 		config = function()
 			local servers = {
+				"astro",
 				"eslint",
 				"gopls",
 				"lua_ls",
@@ -34,6 +46,7 @@ return {
 					"prettier",
 					"stylua",
 					"shfmt",
+					"js-debug-adapter",
 				},
 			})
 
@@ -47,27 +60,17 @@ return {
 				settings = {
 					Lua = {
 						runtime = { version = "LuaJIT" },
-						workspace = {
-							checkThirdParty = false,
-							library = vim.api.nvim_get_runtime_file("", true),
-						},
+						-- library is provided lazily by lazydev.nvim
+						workspace = { checkThirdParty = false },
 						diagnostics = { globals = { "vim" } },
 						telemetry = { enable = false },
 					},
 				},
 			})
 
+			-- filetypes come from the lspconfig default (js/ts/jsx/tsx, vue,
+			-- svelte, astro, htmlangular)
 			vim.lsp.config("eslint", {
-				filetypes = {
-					"javascript",
-					"javascriptreact",
-					"javascript.jsx",
-					"typescript",
-					"typescriptreact",
-					"typescript.tsx",
-					"vue",
-					"astro",
-				},
 				settings = {
 					format = false,
 					codeActionsOnSave = { enable = true },
@@ -114,7 +117,7 @@ return {
 					},
 				},
 				underline = true,
-				update_in_insert = true,
+				update_in_insert = false,
 				float = { border = "rounded" },
 			})
 		end,

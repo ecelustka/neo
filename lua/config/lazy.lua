@@ -15,6 +15,7 @@ require("lazy").setup({
 	spec = { { import = "plugins" } },
 	install = { colorscheme = { "catppuccin" } },
 	change_detection = { notify = false },
+	rocks = { enabled = false }, -- no plugin here needs luarocks
 	performance = {
 		rtp = {
 			disabled_plugins = {

@@ -4,20 +4,44 @@ return {
 		dependencies = {
 			"nvim-neotest/nvim-nio",
 			"rcarriga/nvim-dap-ui",
-			"mxsdev/nvim-dap-vscode-js",
 			"theHamsta/nvim-dap-virtual-text",
-			{
-				"microsoft/vscode-js-debug",
-				version = "1.x",
-				build = "npm i && npm run compile vsDebugServerBundle && mv dist out",
-			},
 		},
 		keys = {
-			{ "<F5>", function() require("dap").continue() end, desc = "DAP continue" },
-			{ "<F6>", function() require("dap").step_over() end, desc = "DAP step over" },
-			{ "<F11>", function() require("dap").step_into() end, desc = "DAP step into" },
-			{ "<F12>", function() require("dap").step_out() end, desc = "DAP step out" },
-			{ "<leader>b", function() require("dap").toggle_breakpoint() end, desc = "Toggle breakpoint" },
+			{
+				"<F5>",
+				function()
+					require("dap").continue()
+				end,
+				desc = "DAP continue",
+			},
+			{
+				"<F6>",
+				function()
+					require("dap").step_over()
+				end,
+				desc = "DAP step over",
+			},
+			{
+				"<F11>",
+				function()
+					require("dap").step_into()
+				end,
+				desc = "DAP step into",
+			},
+			{
+				"<F12>",
+				function()
+					require("dap").step_out()
+				end,
+				desc = "DAP step out",
+			},
+			{
+				"<leader>b",
+				function()
+					require("dap").toggle_breakpoint()
+				end,
+				desc = "Toggle breakpoint",
+			},
 			{
 				"<leader>B",
 				function()
@@ -25,16 +49,32 @@ return {
 				end,
 				desc = "Conditional breakpoint",
 			},
-			{ "<leader>ui", function() require("dapui").toggle() end, desc = "DAP UI toggle" },
+			{
+				"<leader>ui",
+				function()
+					require("dapui").toggle()
+				end,
+				desc = "DAP UI toggle",
+			},
 		},
 		config = function()
-			require("dap-vscode-js").setup({
-				debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
-				adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
-			})
+			local dap = require("dap")
+
+			-- js-debug-adapter is installed by mason-tool-installer (see lsp.lua)
+			for _, adapter in ipairs({ "pwa-node", "pwa-chrome" }) do
+				dap.adapters[adapter] = {
+					type = "server",
+					host = "localhost",
+					port = "${port}",
+					executable = {
+						command = vim.fn.stdpath("data") .. "/mason/bin/js-debug-adapter",
+						args = { "${port}" },
+					},
+				}
+			end
 
 			for _, language in ipairs({ "typescript", "javascript", "svelte" }) do
-				require("dap").configurations[language] = {
+				dap.configurations[language] = {
 					{
 						type = "pwa-node",
 						request = "attach",
@@ -58,15 +98,13 @@ return {
 						port = 9222,
 						webRoot = "${workspaceFolder}/src",
 					},
-					language == "javascript"
-							and {
-								type = "pwa-node",
-								request = "launch",
-								name = "Launch file in new node process",
-								program = "${file}",
-								cwd = "${workspaceFolder}",
-							}
-						or nil,
+					language == "javascript" and {
+						type = "pwa-node",
+						request = "launch",
+						name = "Launch file in new node process",
+						program = "${file}",
+						cwd = "${workspaceFolder}",
+					} or nil,
 				}
 			end
 
@@ -130,7 +168,7 @@ return {
 				},
 			})
 
-			local dap, dapui = require("dap"), require("dapui")
+			local dapui = require("dapui")
 			dap.listeners.after.event_initialized["dapui_config"] = function()
 				dapui.open({ reset = true })
 			end

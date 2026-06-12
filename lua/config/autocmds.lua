@@ -4,26 +4,28 @@ local autocmd = vim.api.nvim_create_autocmd
 autocmd("TextYankPost", {
 	group = augroup("highlight_yank", { clear = true }),
 	callback = function()
-		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 700 })
+		vim.hl.on_yank({ higroup = "IncSearch", timeout = 700 })
 	end,
 })
 
 autocmd("BufWritePre", {
 	group = augroup("EslintFixOnSave", { clear = true }),
 	pattern = { "*.tsx", "*.ts", "*.jsx", "*.js", "*.mjs", "*.cjs", "*.svelte", "*.vue", "*.astro" },
-	command = "silent! EslintFixAll",
+	command = "silent! LspEslintFixAll",
 })
 
-autocmd("BufWritePost", {
+-- Runs after the eslint autocmd above (same event, defined later), then the
+-- buffer is written already formatted.
+autocmd("BufWritePre", {
 	group = augroup("ConformFormatOnSave", { clear = true }),
 	pattern = "*",
 	callback = function(args)
-		require("conform").format({ bufnr = args.buf, async = true, lsp_fallback = true })
+		require("conform").format({ bufnr = args.buf, lsp_format = "fallback" })
 	end,
 })
 
 autocmd({ "BufNewFile", "BufRead" }, {
 	group = augroup("EnvFiletype", { clear = true }),
-	pattern = ".env.*",
+	pattern = { ".env", ".env.*" },
 	command = "set filetype=sh",
 })
