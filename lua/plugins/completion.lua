@@ -35,9 +35,12 @@ return {
 				providers = {
 					copilot = {
 						name = "copilot",
-						module = "blink-cmp-copilot",
+						module = "blink_copilot_safe",
 						score_offset = 100,
 						async = true,
+						enabled = function()
+							return vim.g.copilot_enabled ~= false
+						end,
 						transform_items = function(_, items)
 							local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
 							local kind_idx = #CompletionItemKind + 1
