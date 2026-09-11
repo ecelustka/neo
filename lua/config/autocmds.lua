@@ -23,9 +23,3 @@ autocmd("BufWritePre", {
 		require("conform").format({ bufnr = args.buf, lsp_format = "fallback" })
 	end,
 })
-
-autocmd({ "BufNewFile", "BufRead" }, {
-	group = augroup("EnvFiletype", { clear = true }),
-	pattern = { ".env", ".env.*" },
-	command = "set filetype=sh",
-})

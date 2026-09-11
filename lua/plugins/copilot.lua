@@ -1,8 +1,9 @@
 return {
 	{
 		"zbirenbaum/copilot.lua",
+		-- Not loaded until <leader>ct / :Copilot; vim.g.copilot_enabled is
+		-- set false in options.lua so the blink source stays off meanwhile
 		cmd = { "Copilot", "CopilotToggle" },
-		event = "InsertEnter",
 		keys = {
 			{ "<leader>ct", "<cmd>CopilotToggle<cr>", desc = "Toggle Copilot" },
 		},
@@ -39,8 +40,7 @@ return {
 				end
 			end, { desc = "Copilot accept" })
 
-			-- Off by default; <leader>ct enables on demand
-			vim.g.copilot_enabled = false
+			-- setup() enables; keep in sync with vim.g.copilot_enabled until toggled
 			vim.cmd("Copilot disable")
 
 			local function toggle_copilot()

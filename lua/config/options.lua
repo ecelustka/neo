@@ -7,6 +7,9 @@ vim.g.loaded_perl_provider = 0
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 
+-- Copilot off by default; <leader>ct toggles (see plugins/copilot.lua)
+vim.g.copilot_enabled = false
+
 opt.backup = false
 opt.clipboard = "unnamedplus"
 opt.confirm = true

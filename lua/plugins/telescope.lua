@@ -4,7 +4,6 @@ return {
 		cmd = "Telescope",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope-file-browser.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 		keys = {
@@ -53,18 +52,9 @@ return {
 						override_file_sorter = true,
 						case_mode = "smart_case",
 					},
-					file_browser = {
-						theme = "ivy",
-						hijack_netrw = true,
-						mappings = {
-							["i"] = {},
-							["n"] = {},
-						},
-					},
 				},
 			})
 			telescope.load_extension("fzf")
-			telescope.load_extension("file_browser")
 		end,
 	},
 }

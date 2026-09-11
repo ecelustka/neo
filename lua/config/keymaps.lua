@@ -32,10 +32,10 @@ end
 pcall(vim.keymap.del, "x", "gra")
 
 -- Create new window
-map("n", "<leader>n", "<cmd>botright vnew<cr>")
+map("n", "<leader>n", "<cmd>botright vnew<cr>", { desc = "New vsplit" })
 
 -- Move code by lines
-map("n", "<leader>j", ":m .+1<CR>==")
-map("n", "<leader>k", ":m .-2<CR>==")
-map("v", "<leader>j", ":m '>+1<CR>gv=gv")
-map("v", "<leader>k", ":m '<-2<CR>gv=gv")
+map("n", "<leader>j", ":m .+1<CR>==", { desc = "Move line down" })
+map("n", "<leader>k", ":m .-2<CR>==", { desc = "Move line up" })
+map("v", "<leader>j", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
+map("v", "<leader>k", ":m '<-2<CR>gv=gv", { desc = "Move line up" })

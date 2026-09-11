@@ -10,19 +10,10 @@ return {
 		opts = {
 			preset = "modern",
 			delay = 400,
+			-- Key descriptions live on the keymaps themselves; only groups here
 			spec = {
 				{ "<leader>h", group = "harpoon" },
 				{ "<leader>G", group = "git hunks" },
-				{ "<leader>b", desc = "DAP breakpoint" },
-				{ "<leader>B", desc = "DAP conditional breakpoint" },
-				{ "<leader>e", desc = "Neotree toggle" },
-				{ "<leader>f", desc = "Live grep" },
-				{ "<leader>g", desc = "LazyGit" },
-				{ "<leader>j", desc = "Move line down" },
-				{ "<leader>k", desc = "Move line up" },
-				{ "<leader>n", desc = "New vsplit" },
-				{ "<leader>p", desc = "Find files" },
-				{ "<leader>ui", desc = "DAP UI toggle" },
 			},
 		},
 	},
